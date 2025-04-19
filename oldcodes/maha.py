@@ -24,5 +24,6 @@ def find_maha(polygon1,polygon2,epsilion=1e-6):
 
 polygon1 = [(1,2),(2,3),(3,2),(4,5)]
 polygon2 = [ (4,3), (3,4), (5,6), (7,8)]
-find_maha(polygon1,polygon2)
+result = find_maha(polygon1, polygon2)
+print("Mahalanobis Distance:", result)
 
