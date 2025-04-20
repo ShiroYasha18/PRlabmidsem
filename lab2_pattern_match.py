@@ -1,9 +1,14 @@
-def match_pattern(input_pattern, patterns):
-    for pattern in patterns:
-        if all(x in pattern for x in input_pattern):
-            return True
-    return False
-
-patterns = [(0,1,1), (1,0,0)]
-print(match_pattern((0,1), patterns))  # True for partial match
-print(match_pattern((0,1,1), patterns))  # True
+#2. Write a program to Match the given input patterns.
+import seaborn as sns
+def match_pattern(input_pattern, dataset, columns):
+    matches = []
+    for i, row in dataset[columns].iterrows():
+        if list(row.values) == input_pattern:
+            matches.append(i)
+    return matches if matches else "No exact match found"
+titanic = sns.load_dataset('titanic')
+print(titanic)
+selected_columns = ['sex', 'pclass', 'embarked']
+input_pattern = ['female', 1, 'S']
+result = match_pattern(input_pattern, titanic, selected_columns)
+print(f"Matching row indices: {result}")
